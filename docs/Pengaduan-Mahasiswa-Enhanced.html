@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pengaduan Mahasiswa UIN Gus Dur - Enhanced</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f7;--surf:#fff;--ink:#14212b;--mute:#5d6c78;--line:#d9e1e7;--acc:#0f7a4a;--acc2:#e5f4ec;--red:#c93d3d;--amb:#b7791f;--grn:#2f855a;--blu:#2b6cb0;
+--f1:'Bricolage Grotesque','Segoe UI',sans-serif;--f2:'IBM Plex Sans','Segoe UI',sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f171d;--surf:#17222a;--ink:#e8eef2;--mute:#97a8b4;--line:#293742;--acc:#3dbb82;--acc2:#123325;--red:#f07878;--amb:#e0a640;--grn:#5fc08c;--blu:#6aa8e8}}
+:root[data-theme="dark"]{--bg:#0f171d;--surf:#17222a;--ink:#e8eef2;--mute:#97a8b4;--line:#293742;--acc:#3dbb82;--acc2:#123325;--red:#f07878;--amb:#e0a640;--grn:#5fc08c;--blu:#6aa8e8}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 var(--f2)}
+h1,h2,h3{font-family:var(--f1);line-height:1.15;margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surf);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;padding:10px 20px;flex-wrap:wrap}
+.logo{line-height:1.1;font:800 18px var(--f1);cursor:pointer;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:6px 6px 6px 0;background:var(--acc);display:inline-block}
+.sp{flex:1}
+.roles{display:flex;gap:4px;background:var(--bg);padding:3px;border-radius:9px}
+.roles button{border:0;background:none;padding:6px 11px;border-radius:7px;cursor:pointer;color:var(--mute);font-weight:500}
+.roles button.on{background:var(--surf);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+main{max-width:1060px;margin:0 auto;padding:24px 20px 60px}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,122,74,.25)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--bg);transform:none}
+.btn.red{background:var(--red)}
+.btn.sm{padding:5px 10px;font-size:13px}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center;padding:28px 0 36px}
+.hero h1{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em}
+.hero p{color:var(--mute);max-width:46ch;margin:14px 0 0}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px}
+.field label{font-weight:600;font-size:13px}
+.field input,.field select,.field textarea{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 11px;width:100%;transition:border .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--acc)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:20px;transition:all .3s}
+.card.hover:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}.g2{grid-template-columns:1.4fr 1fr}
+.stat b{font:800 30px var(--f1);display:block}.stat span{color:var(--mute);font-size:13px}
+.flow{display:flex;gap:0;margin:26px 0;overflow-x:auto}
+.flow div{flex:1;min-width:130px;padding:14px 16px;border-top:3px solid var(--acc);background:var(--surf);border-right:1px solid var(--line)}
+.flow b{display:block;font-family:var(--f1)}.flow span{font-size:13px;color:var(--mute)}
+.pill{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid currentColor}
+.s-Menunggu{color:var(--amb)}.s-Diproses{color:var(--blu)}.s-Selesai{color:var(--grn)}.s-Ditolak{color:var(--red)}
+.urg{color:var(--red);font-weight:600;font-size:12px}
+.tk{display:grid;grid-template-columns:110px 1fr auto;gap:12px;align-items:center;padding:13px 16px;border-bottom:1px solid var(--line);cursor:pointer;background:var(--surf);transition:all .2s}
+.tk:hover{background:var(--acc2)}
+.tk small{color:var(--mute)}
+.code{font:600 13px ui-monospace,Menlo,monospace;color:var(--acc)}
+.list{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tabs{display:flex;gap:6px;margin:14px 0;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--surf);border-radius:99px;padding:5px 13px;cursor:pointer;transition:all .2s}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs button:not(.on):hover{background:var(--bg)}
+.tl{list-style:none;margin:0;padding:0 0 0 14px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 14px 14px;font-size:14px}
+.tl li:before{content:"";position:absolute;left:-22px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.tl small{color:var(--mute);display:block}
+.chat{display:flex;flex-direction:column;gap:8px;max-height:260px;overflow:auto;margin-bottom:10px}
+.msg{max-width:80%;padding:8px 12px;border-radius:12px;background:var(--bg);animation:slideIn .3s ease}
+.msg.adm{background:var(--acc2);align-self:flex-start}.msg.mhs{align-self:flex-end;background:var(--bg);border:1px solid var(--line)}
+.msg small{display:block;color:var(--mute);font-size:11px}
+.bar{display:grid;grid-template-columns:90px 1fr 28px;gap:10px;align-items:center;margin:8px 0;font-size:13px}
+.bar i{display:block;height:14px;border-radius:4px;background:var(--acc);transition:width .5s ease}
+.stars button{background:none;border:0;font-size:26px;cursor:pointer;color:var(--line);padding:0 2px;transition:all .2s}.stars button.on{color:var(--amb)}
+.stars button:hover{transform:scale(1.2)}
+.toast{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:10px;max-width:340px;font-size:14px;z-index:9;animation:slideUp .3s ease}
+.auth{display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;min-height:60vh}.auth-l h2{font-size:clamp(26px,4vw,38px);font-weight:800;max-width:16ch}.auth-l p{color:var(--mute);max-width:42ch;margin-top:12px}.auth-r a{color:var(--acc)}
+@media(max-width:760px){.auth{grid-template-columns:1fr}}
+.muted{color:var(--mute)}.hide{display:none}
+.scroll{overflow-x:auto}
+.hero2{background:linear-gradient(135deg,#0b5a38,#0f7a4a);color:#fff;border-radius:16px;padding:44px 32px 60px;margin-top:6px}.hero2 h1{font-size:clamp(28px,4.6vw,46px);font-weight:800;max-width:18ch;letter-spacing:-.02em}.hero2 p{max-width:56ch;margin:12px 0 22px;opacity:.9}
+.srch{display:flex;gap:8px;max-width:560px;background:#fff;border-radius:10px;padding:6px}.srch input{flex:1;border:0;background:none;padding:8px 10px;color:#14212b;min-width:0}
+.btn.gold{background:#e8b730;color:#2b2100}.btn.light{color:#fff;border-color:#ffffff88}
+.g4{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.g5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.cat b{font-family:var(--f1);display:block}.cat span{font-size:13px;color:var(--mute)}.cat{border-left:4px solid var(--acc)}
+@media(max-width:760px){.g2{grid-template-columns:1fr}.tk{grid-template-columns:1fr auto}.tk .code{grid-column:1/-1}}
+
+/* NEW: Enhanced Features Styles */
+.badge{position:absolute;top:-6px;right:-6px;background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:99px;min-width:18px;text-align:center}
+.notif-center{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px}
+.notif-item{display:flex;gap:12px;padding:12px;border-radius:8px;margin-bottom:8px;cursor:pointer;transition:all .2s}
+.notif-item:hover{background:var(--acc2)}
+.notif-item.urgent{border-left:3px solid var(--red)}
+.notif-item.warn{border-left:3px solid var(--amb)}
+.notif-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.notif-icon.red{background:rgba(201,61,61,.1);color:var(--red)}
+.notif-icon.amber{background:rgba(183,121,31,.1);color:var(--amb)}
+.notif-icon.blue{background:rgba(43,108,176,.1);color:var(--blu)}
+.timer{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600}
+.timer.green{background:rgba(47,133,90,.1);color:var(--grn)}
+.timer.yellow{background:rgba(183,121,31,.1);color:var(--amb)}
+.timer.red{background:rgba(201,61,61,.1);color:var(--red)}
+.timer.black{background:rgba(20,33,43,.1);color:var(--ink);border:2px solid var(--red)}
+.progress-bar{width:100%;height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0}
+.progress-fill{height:100%;background:var(--acc);transition:width .5s ease}
+.progress-fill.yellow{background:var(--amb)}
+.progress-fill.red{background:var(--red)}
+.quick-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.filter-panel{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.checkbox-row{display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.checkbox-row input[type="checkbox"]{cursor:pointer;width:16px;height:16px}
+.search-box{position:relative;flex:1;min-width:200px}
+.search-box input{width:100%;padding-left:36px}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:16px}
+.dashboard-header{background:linear-gradient(135deg,var(--acc),var(--blu));color:#fff;border-radius:12px;padding:24px;margin-bottom:20px}
+.dashboard-header h2{margin-bottom:8px}
+.dashboard-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:16px}
+.dashboard-stat{background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:12px;border-radius:8px}
+.dashboard-stat b{display:block;font-size:24px;margin-bottom:4px}
+.dashboard-stat span{font-size:12px;opacity:.9}
+.bulk-actions{position:sticky;top:70px;z-index:4;background:var(--acc);color:#fff;padding:12px 20px;border-radius:10px;margin-bottom:16px;display:flex;gap:10px;align-items:center;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.tk-checkbox{display:flex;align-items:center;padding-right:12px}
+.tk-checkbox input{width:18px;height:18px;cursor:pointer}
+.stepper{position:relative;padding-left:30px}
+.stepper-item{position:relative;padding-bottom:24px}
+.stepper-item:before{content:"";position:absolute;left:-22px;top:0;width:2px;height:100%;background:var(--line)}
+.stepper-item:last-child:before{display:none}
+.stepper-icon{position:absolute;left:-30px;top:2px;width:16px;height:16px;border-radius:50%;background:var(--surf);border:3px solid var(--line);z-index:1}
+.stepper-item.active .stepper-icon{background:var(--acc);border-color:var(--acc)}
+.stepper-item.completed .stepper-icon{background:var(--grn);border-color:var(--grn)}
+.stepper-item.completed .stepper-icon:after{content:"✓";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:10px;font-weight:700}
+.template-btn{background:var(--bg);border:1px solid var(--line);padding:8px 12px;border-radius:6px;cursor:pointer;font-size:13px;transition:all .2s}
+.template-btn:hover{background:var(--acc2);border-color:var(--acc)}
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .3s ease}
+.modal-content{background:var(--surf);border-radius:16px;padding:24px;max-width:500px;width:100%;max-height:90vh;overflow:auto;animation:slideIn .3s ease}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-close{background:none;border:0;font-size:24px;cursor:pointer;color:var(--mute);padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:all .2s}
+.modal-close:hover{background:var(--bg)}
+
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes slideIn{from{transform:translateX(-10px);opacity:0}to{transform:translateX(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.pulse{animation:pulse 2s infinite}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="logo" onclick="go('landing')"><i></i><span>Pengaduan Mahasiswa<br><small style="font:500 11px var(--f2);color:var(--mute)">UIN K.H. Abdurrahman Wahid Pekalongan</small></span></div>
+  <div class="sp"></div>
+  <div id="notif-badge" style="position:relative"></div>
+  <div id="who" class="row"></div>
+  <div class="roles" role="group" aria-label="Masuk sebagai (demo)">
+    <button data-r="publik" onclick="setRole('publik')">Publik</button>
+    <button data-r="mhs" onclick="setRole('mhs')">Mahasiswa</button>
+    <button data-r="admin" onclick="setRole('admin')">Admin Kemahasiswaan</button>
+    <button data-r="pim" onclick="setRole('pim')">Pimpinan</button>
+  </div>
+</div>
+<main id="app"></main>
+<div id="toast" class="toast hide" role="status"></div>
+<div id="modal-root"></div>
+<script>
+const KAT=['Akademik','Fasilitas','Keuangan','Dosen','Bullying'];
+const UNIT={Akademik:'Bagian Akademik',Fasilitas:'Sarana & Prasarana',Keuangan:'Bagian Keuangan',Dosen:'Wakil Dekan I',Bullying:'Satgas Kekerasan Kampus'};
+const PRODI=['Teknik Informatika','Sistem Informasi','Manajemen Zakat dan Wakaf','Hukum Keluarga Islam','Pendidikan Agama Islam','Ekonomi Syariah','Komunikasi dan Penyiaran Islam','Lainnya'];
+const H=async(n,p)=>{try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(n+':'+p));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return 'p:'+n+':'+p}};
+
+let USERS=[],ME=null,LERR='';
+try{USERS=JSON.parse(localStorage.getItem('cc_u')||'[]')}catch(e){}
+const saveU=()=>{try{localStorage.setItem('cc_u',JSON.stringify(USERS))}catch(e){}};
+const now=()=>new Date().toLocaleString('id-ID',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'});
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// Enhanced: Add createdAt timestamp for SLA calculation
+let T=[
+ {id:'PM-2610-0001',judul:'AC ruang kelas B2.04 mati sejak 2 minggu',kat:'Fasilitas',desk:'AC tidak menyala, kelas sangat panas saat kuliah siang.',file:'foto_ac.jpg',status:'Selesai',anon:false,nim:'2210511042',nama:'Rayhan Pratama',tgl:'05 Okt',urgent:false,unit:'Sarana & Prasarana',rating:5,chat:[{f:'adm',t:'Teknisi sudah dijadwalkan Kamis.',w:'06 Okt'},{f:'mhs',t:'Terima kasih, sudah menyala.',w:'09 Okt'}],log:[['05 Okt','Pengaduan diterima'],['05 Okt','Diverifikasi admin'],['06 Okt','Diteruskan ke Sarana & Prasarana'],['09 Okt','Selesai']],createdAt:Date.now()-18*24*60*60*1000},
+ {id:'PM-2610-0002',judul:'Nilai UTS belum keluar melewati batas waktu',kat:'Akademik',desk:'Dosen belum menginput nilai Basis Data padahal sudah 5 minggu.',file:'',status:'Diproses',anon:false,nim:'2210511042',nama:'Rayhan Pratama',tgl:'14 Okt',urgent:false,unit:'Bagian Akademik',rating:0,chat:[{f:'adm',t:'Kami sudah menghubungi dosen terkait.',w:'15 Okt'}],log:[['14 Okt','Pengaduan diterima'],['15 Okt','Diverifikasi admin'],['15 Okt','Diteruskan ke Bagian Akademik']],createdAt:Date.now()-9*24*60*60*1000},
+ {id:'PM-2610-0003',judul:'Perundungan di grup angkatan',kat:'Bullying',desk:'Beberapa mahasiswa menyebarkan tangkapan layar yang mempermalukan teman.',file:'ss_grup.png',status:'Menunggu',anon:true,nim:'2110511077',nama:'Anonim',tgl:'21 Okt',urgent:true,unit:'',rating:0,chat:[],log:[['21 Okt','Pengaduan diterima (anonim)']],createdAt:Date.now()-38*60*60*1000},
+ {id:'PM-2610-0004',judul:'Keringanan UKT belum diproses',kat:'Keuangan',desk:'Pengajuan sudah 3 bulan tanpa kabar.',file:'',status:'Menunggu',anon:false,nim:'2210511015',nama:'Salsa Nuraini',tgl:'22 Okt',urgent:false,unit:'',rating:0,chat:[],log:[['22 Okt','Pengaduan diterima']],createdAt:Date.now()-25*60*60*1000}
+];
+
+try{const s=localStorage.getItem('cc_t');if(s)T=JSON.parse(s)}catch(e){}
+const save=()=>{try{localStorage.setItem('cc_t',JSON.stringify(T))}catch(e){}};
+
+let role='publik',view='landing',sel=null,flt='Semua',trk=null,bulkSel=new Set(),searchQ='',filters={urgent:false,anon:false,overdue:false};
+
+// NEW: SLA Timer Functions
+function getSLA(t){
+  const hrs=(Date.now()-(t.createdAt||Date.now()))/1000/60/60;
+  const target=t.urgent?24:48;
+  const pct=Math.min((hrs/target)*100,100);
+  let color='green';
+  if(hrs>target)color='black';
+  else if(pct>75)color='red';
+  else if(pct>50)color='yellow';
+  return {hrs:hrs.toFixed(1),target,pct,color,overdue:hrs>target};
+}
+
+function timerBadge(t){
+  const sla=getSLA(t);
+  const h=Math.floor(sla.hrs);const m=Math.floor((sla.hrs-h)*60);
+  return `<span class="timer ${sla.color}" title="Target: ${sla.target} jam">${sla.overdue?'⚠️':' ⏱️'} ${h}j ${m}m (${sla.pct.toFixed(0)}%)</span>`;
+}
+
+function progressBar(t){
+  const sla=getSLA(t);
+  return `<div class="progress-bar"><div class="progress-fill ${sla.color}" style="width:${sla.pct}%"></div></div>`;
+}
+
+// NEW: Notification System
+function getNotifications(){
+  const notifs=[];
+  const urgent=T.filter(t=>t.urgent&&t.status!='Selesai'&&t.status!='Ditolak');
+  const waiting=T.filter(t=>t.status=='Menunggu');
+  const overdue=T.filter(t=>getSLA(t).overdue&&t.status!='Selesai'&&t.status!='Ditolak');
+  const unread=T.filter(t=>t.chat.length&&t.chat[t.chat.length-1].f=='mhs'&&role=='admin');
+  
+  if(urgent.length)notifs.push({type:'urgent',icon:'⚠️',title:`${urgent.length} Pengaduan Mendesak`,desc:'Perlu ditangani segera',action:()=>{filters.urgent=true;flt='Semua';render()}});
+  if(overdue.length)notifs.push({type:'warn',icon:'⏰',title:`${overdue.length} Overdue > 48 jam`,desc:'Melewati target SLA',action:()=>{filters.overdue=true;flt='Semua';render()}});
+  if(waiting.length&&role=='admin')notifs.push({type:'info',icon:'📋',title:`${waiting.length} Menunggu Verifikasi`,desc:'Review dan teruskan',action:()=>{flt='Menunggu';render()}});
+  if(unread.length&&role=='admin')notifs.push({type:'info',icon:'💬',title:`${unread.length} Chat Belum Dibalas`,desc:'Dari mahasiswa',action:()=>{sel=unread[0].id;render()}});
+  
+  return notifs;
+}
+
+function notifCenter(){
+  const notifs=getNotifications();
+  if(!notifs.length)return '';
+  return `<div class="notif-center">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <h3 style="font-size:16px;margin:0">🔔 Perlu Perhatian</h3>
+      <span class="muted" style="font-size:12px">${notifs.length} notifikasi</span>
+    </div>
+    ${notifs.map(n=>`<div class="notif-item ${n.type}" onclick='${n.action.toString().replace(/'/g,"\\'")}();this.style.opacity=0.5'>
+      <div class="notif-icon ${n.type=='urgent'?'red':n.type=='warn'?'amber':'blue'}">${n.icon}</div>
+      <div style="flex:1">
+        <b style="font-size:14px;display:block">${n.title}</b>
+        <span class="muted" style="font-size:12px">${n.desc}</span>
+      </div>
+      <span style="color:var(--acc);font-size:18px">→</span>
+    </div>`).join('')}
+  </div>`;
+}
+
+// Update notification badge in header
+function updateNotifBadge(){
+  const notifs=getNotifications();
+  const badge=document.getElementById('notif-badge');
+  if(role=='admin'&&notifs.length>0){
+    badge.innerHTML=`<button class="btn sm" onclick="event.stopPropagation();showNotifModal()" style="position:relative">
+      🔔 Notifikasi
+      <span class="badge pulse">${notifs.length}</span>
+    </button>`;
+  }else{
+    badge.innerHTML='';
+  }
+}
+
+function showNotifModal(){
+  const notifs=getNotifications();
+  const html=`<div class="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🔔 Notifikasi</h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      ${notifs.map(n=>`<div class="notif-item ${n.type}" onclick='${n.action.toString().replace(/'/g,"\\'")}();closeModal()'>
+        <div class="notif-icon ${n.type=='urgent'?'red':n.type=='warn'?'amber':'blue'}">${n.icon}</div>
+        <div style="flex:1">
+          <b style="font-size:14px;display:block">${n.title}</b>
+          <span class="muted" style="font-size:12px">${n.desc}</span>
+        </div>
+        <span style="color:var(--acc);font-size:18px">→</span>
+      </div>`).join('')}
+    </div>
+  </div>`;
+  document.getElementById('modal-root').innerHTML=html;
+}
+
+function closeModal(){
+  document.getElementById('modal-root').innerHTML='';
+}
+
+function toast(m){const e=document.getElementById('toast');e.textContent=m;e.classList.remove('hide');clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.add('hide'),3800)}
+function notif(t,txt){toast('WhatsApp & email terkirim ke '+(t.anon?'pelapor (anonim)':t.nama)+': '+txt)}
+function setRole(r){role=r;sel=null;bulkSel.clear();view=r=='publik'?'landing':r=='mhs'?(ME?'mhs':'login'):r=='admin'?'admin':'pim';render()}
+function go(v){view=v;sel=null;bulkSel.clear();render()}
+const pill=s=>`<span class="pill s-${s}">${s}</span>`;
+
+function render(){
+ document.querySelectorAll('.roles button').forEach(b=>b.classList.toggle('on',b.dataset.r==role));
+ const a=document.getElementById('app');
+ document.getElementById('who').innerHTML=ME?`<span class="muted" style="font-size:13px">${esc(ME.nama)} (${ME.nim})</span> <button class="btn ghost sm" onclick="logout()">Keluar</button>`:'';
+ a.innerHTML=view=='login'?loginV():view=='register'?regV():view=='landing'?landing():view=='new'?newForm():sel?detail(T.find(x=>x.id==sel)):view=='mhs'?mhs():view=='admin'?admin():pim();
+ updateNotifBadge();
+ window.scrollTo(0,0);
+}
+
+function counts(){const c={};T.forEach(t=>c[t.status]=(c[t.status]||0)+1);return c}
+
+function landing(){
+  const c=counts();const r=T.filter(t=>t.rating);const avg=r.length?(r.reduce((a,t)=>a+t.rating,0)/r.length).toFixed(1):'-';
+  const q=(window.Q||'').toLowerCase();const feed=T.filter(t=>!q||(t.id+t.judul+t.kat).toLowerCase().includes(q));
+  return `<section class="hero2"><h1>Suarakan pengaduanmu, kami tindak lanjuti.</h1><p>Layanan pengaduan resmi mahasiswa UIN K.H. Abdurrahman Wahid Pekalongan. Laporan ditanggapi dalam 2×24 jam dan boleh disampaikan tanpa nama.</p>
+<div class="srch"><input id="kode" aria-label="Cari pengaduan" placeholder="Cari judul, kategori, atau nomor pengaduan" value="${esc(window.Q||'')}" onkeydown="if(event.key=='Enter')srch()"><button class="btn" onclick="srch()">Cari</button></div>
+<div class="row" style="margin-top:16px"><button class="btn gold" onclick="setRole('mhs')">Sampaikan pengaduan</button><button class="btn ghost light" onclick="setRole('mhs')">Masuk mahasiswa</button></div></section>
+<div class="grid g4" style="margin-top:-28px;position:relative"><div class="card stat hover"><b>${T.length}</b><span>Pengaduan masuk</span></div><div class="card stat hover"><b class="s-Diproses">${(c.Menunggu||0)+(c.Diproses||0)}</b><span>Sedang ditangani</span></div><div class="card stat hover"><b class="s-Selesai">${c.Selesai||0}</b><span>Selesai</span></div><div class="card stat hover"><b>${avg}/5</b><span>Kepuasan mahasiswa</span></div></div>
+<h2 style="margin:32px 0 12px;font-size:22px">Kategori pengaduan</h2><div class="grid g5">${KAT.map(k=>`<div class="card cat hover"><b>${k}</b><span>${T.filter(t=>t.kat==k).length} pengaduan</span></div>`).join('')}</div>
+<h2 style="margin:32px 0 12px;font-size:22px">Pengaduan terbaru</h2><div class="list">${feed.length?feed.map(t=>tkRow(t)).join(''):'<p style="padding:20px" class="muted">Tidak ada pengaduan yang cocok. Coba kata kunci lain.</p>'}</div>
+<h2 style="margin:32px 0 4px;font-size:22px">Cara menyampaikan pengaduan</h2>
+<div class="flow"><div><b>Tulis</b><span>Isi pengaduan, unggah bukti, pilih anonim atau tidak</span></div><div><b>Verifikasi</b><span>Admin Kemahasiswaan memeriksa laporan</span></div><div><b>Teruskan</b><span>Dikirim ke unit atau pimpinan terkait</span></div><div><b>Tanggapan</b><span>Pemberitahuan via WhatsApp dan email</span></div><div><b>Nilai</b><span>Beri rating setelah selesai</span></div></div>`;
+}
+
+function srch(){window.Q=document.getElementById('kode').value.trim();render()}
+
+function tkRow(t,adm,showCheck){
+  const sla=getSLA(t);
+  return `<div class="tk" onclick="${showCheck?'':''}open_('${t.id}')" tabindex="0" onkeydown="if(event.key=='Enter')open_('${t.id}')">
+    ${showCheck?`<div class="tk-checkbox" onclick="event.stopPropagation();toggleBulk('${t.id}')"><input type="checkbox" ${bulkSel.has(t.id)?'checked':''}></div>`:''}
+    <span class="code">${t.id}</span>
+    <div>
+      <b>${esc(t.judul)}</b> ${t.urgent?'<span class="urg">Mendesak</span>':''} ${adm&&sla.overdue?'<span class="urg">⚠️ Overdue</span>':''}
+      <br><small>${t.kat} · ${adm?(t.anon?'Anonim':esc(t.nama)):t.tgl} · ${t.tgl}</small>
+      ${adm?'<br>'+timerBadge(t):''}
+    </div>
+    ${pill(t.status)}
+  </div>`;
+}
+
+function open_(id){sel=id;render()}
+
+function authWrap(title,sub,body){return `<div class="auth"><div class="auth-l"><h2>${title}</h2><p>${sub}</p></div><div class="card auth-r">${body}</div></div>`}
+
+function loginV(){return authWrap('Masuk untuk menyampaikan pengaduan','Gunakan NIM dan kata sandi akunmu. Pengaduan bisa dikirim anonim, identitasmu tetap tersimpan aman.',`<h3 style="font-size:20px;margin-bottom:16px">Masuk mahasiswa</h3>
+<div class="field"><label for="l_n">NIM</label><input id="l_n" inputmode="numeric" autocomplete="username" placeholder="Contoh: 2210511042" onkeydown="if(event.key=='Enter')l_p.focus()"></div>
+<div class="field"><label for="l_p">Kata sandi</label><div class="row" style="flex-wrap:nowrap"><input id="l_p" type="password" autocomplete="current-password" onkeydown="if(event.key=='Enter')doLogin()"><button class="btn ghost sm" type="button" onclick="l_p.type=l_p.type=='password'?'text':'password'">Lihat</button></div></div>
+<p id="lerr" class="urg" role="alert" style="margin:0 0 10px">${LERR}</p>
+<button class="btn" style="width:100%" onclick="doLogin()">Masuk</button>
+<p class="muted" style="margin:14px 0 0;font-size:13px">Belum punya akun? <a href="#" onclick="LERR='';go('register');return false">Daftar dengan NIM</a></p>
+<p class="muted" style="margin:10px 0 0;font-size:12px">Akun contoh: NIM 2210511042, sandi mahasiswa123</p>`)}
+
+function regV(){return authWrap('Buat akun mahasiswa','Daftar sekali dengan NIM, lalu masuk kapan saja untuk membuat dan memantau pengaduan.',`<h3 style="font-size:20px;margin-bottom:16px">Daftar akun</h3>
+<div class="field"><label for="r_n">NIM</label><input id="r_n" inputmode="numeric" maxlength="12" autocomplete="username"></div>
+<div class="field"><label for="r_m">Nama lengkap</label><input id="r_m" autocomplete="name"></div>
+<div class="field"><label for="r_p">Program studi</label><select id="r_p">${PRODI.map(p=>`<option>${p}</option>`).join('')}</select></div>
+<div class="field"><label for="r_s">Kata sandi (minimal 8 karakter)</label><input id="r_s" type="password" autocomplete="new-password"></div>
+<div class="field"><label for="r_s2">Ulangi kata sandi</label><input id="r_s2" type="password" autocomplete="new-password" onkeydown="if(event.key=='Enter')doReg()"></div>
+<p id="lerr" class="urg" role="alert" style="margin:0 0 10px">${LERR}</p>
+<button class="btn" style="width:100%" onclick="doReg()">Daftar</button>
+<p class="muted" style="margin:14px 0 0;font-size:13px">Sudah punya akun? <a href="#" onclick="LERR='';go('login');return false">Masuk</a></p>`)}
+
+const lerr=m=>{LERR=m;document.getElementById('lerr').textContent=m};
+
+async function doLogin(){
+  const n=l_n.value.trim(),p=l_p.value;
+  if(!n||!p){lerr('NIM dan kata sandi wajib diisi.');return}
+  const u=USERS.find(x=>x.nim==n);
+  if(!u||u.h!==await H(n,p)){lerr('NIM atau kata sandi salah. Periksa kembali atau daftar akun baru.');return}
+  ME=u;LERR='';try{localStorage.setItem('cc_me',n)}catch(e){}
+  toast('Selamat datang, '+u.nama.split(' ')[0]+'.');go('mhs')
+}
+
+async function doReg(){
+  const n=r_n.value.trim(),m=r_m.value.trim(),p=r_s.value;
+  if(!/^\d{8,12}$/.test(n)){lerr('NIM harus berupa 8 sampai 12 angka.');return}
+  if(!m){lerr('Nama lengkap wajib diisi.');return}
+  if(p.length<8){lerr('Kata sandi minimal 8 karakter.');return}
+  if(p!==r_s2.value){lerr('Kata sandi dan pengulangannya tidak sama.');return}
+  if(USERS.some(x=>x.nim==n)){lerr('NIM ini sudah terdaftar. Silakan masuk.');return}
+  const u={nim:n,nama:m,prodi:r_p.value,h:await H(n,p)};
+  USERS.push(u);saveU();ME=u;LERR='';
+  try{localStorage.setItem('cc_me',n)}catch(e){}
+  toast('Akun dibuat. Kamu sudah masuk.');go('mhs')
+}
+
+function logout(){ME=null;LERR='';try{localStorage.removeItem('cc_me')}catch(e){};toast('Kamu sudah keluar.');setRole('publik')}
+
+function mhs(){
+  const mine=T.filter(t=>t.nim==ME.nim);
+  const active=mine.filter(t=>t.status!='Selesai'&&t.status!='Ditolak');
+  const completed=mine.filter(t=>t.status=='Selesai');
+  
+  return `<div class="dashboard-header">
+    <h2>Halo, ${ME.nama.split(' ')[0]} 👋</h2>
+    <span style="opacity:.9">${ME.nim} · ${ME.prodi}</span>
+    <div class="dashboard-stats">
+      <div class="dashboard-stat"><b>${mine.length}</b><span>Total Pengaduan</span></div>
+      <div class="dashboard-stat"><b>${active.length}</b><span>Sedang Aktif</span></div>
+      <div class="dashboard-stat"><b>${completed.length}</b><span>Selesai</span></div>
+    </div>
+  </div>
+  <button class="btn" style="margin-bottom:20px" onclick="go('new')">📝 Buat Pengaduan Baru</button>
+  <h3 style="margin:24px 0 10px;font-size:18px">Riwayat Pengaduanku</h3>
+  <div class="list">${mine.length?mine.map(t=>tkRow(t)).join(''):'<p style="padding:20px" class="muted">Belum ada pengaduan. Buat pengaduan pertamamu.</p>'}</div>`;
+}
+
+function newForm(){return `<h2>Pengaduan baru</h2><div class="card" style="margin-top:16px;max-width:640px">
+<div class="field"><label for="n_j">Judul singkat</label><input id="n_j" maxlength="90" placeholder="Contoh: Proyektor ruang C3 rusak"></div>
+<div class="field"><label for="n_k">Kategori</label><select id="n_k">${KAT.map(k=>`<option>${k}</option>`).join('')}</select></div>
+<div class="field"><label for="n_d">Ceritakan kejadiannya</label><textarea id="n_d" rows="5" placeholder="Kapan, di mana, siapa yang terlibat, dan dampaknya"></textarea></div>
+<div class="field"><label for="n_f">Bukti foto atau file (opsional)</label><input id="n_f" type="file" accept="image/*,.pdf"></div>
+<label class="row" style="margin-bottom:16px;cursor:pointer"><input type="checkbox" id="n_a"> <span><b>Kirim sebagai anonim.</b> Nama dan NIM tidak ditampilkan ke admin.</span></label>
+<div class="row"><button class="btn" onclick="submitNew()">Kirim pengaduan</button><button class="btn ghost" onclick="go('mhs')">Batal</button></div></div>`}
+
+function submitNew(){
+  const j=n_j.value.trim(),d=n_d.value.trim();
+  if(!j||!d){toast('Judul dan cerita wajib diisi.');return}
+  const k=n_k.value,an=n_a.checked,id='PM-2610-'+String(T.length+1).padStart(4,'0');
+  const t={id,judul:j,kat:k,desk:d,file:n_f.files[0]?n_f.files[0].name:'',status:'Menunggu',anon:an,nim:ME.nim,nama:an?'Anonim':ME.nama,tgl:'23 Okt',urgent:k=='Bullying',unit:'',rating:0,chat:[],log:[['23 Okt','Pengaduan diterima'+(an?' (anonim)':'')]],createdAt:Date.now()};
+  T.unshift(t);save();
+  toast('Pengaduan terkirim dengan nomor '+id+'. Simpan nomor ini untuk memantau status.');
+  sel=id;render()
+}
+
+function detail(t){
+  const adm=role=='admin',mine=role=='mhs'&&t.nim==ME.nim;
+  const back=`<button class="btn ghost sm" onclick="sel=null;render()">← Kembali</button>`;
+  const sla=getSLA(t);
+  
+  return `${back}<div class="grid g2" style="margin-top:14px">
+    <div class="card">
+      <div class="row"><span class="code">${t.id}</span>${pill(t.status)}${t.urgent?'<span class="urg">⚠️ Mendesak</span>':''}</div>
+      <h2 style="font-size:24px;margin:10px 0">${esc(t.judul)}</h2>
+      <p class="muted" style="margin:0 0 12px">${t.kat} · ${role=='publik'?'Pelapor dirahasiakan':role=='mhs'?esc(t.nama):(t.anon?'Anonim':esc(t.nama)+' ('+t.nim+')')} · ${t.tgl}${t.unit?' · Unit: '+esc(t.unit):''}</p>
+      ${(t.status=='Menunggu'||t.status=='Diproses')?`
+        <div style="background:var(--acc2);padding:12px;border-radius:8px;margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <span style="font-size:13px;font-weight:600">⏱️ Waktu Penanganan</span>
+            ${timerBadge(t)}
+          </div>
+          ${progressBar(t)}
+          <span class="muted" style="font-size:11px">Target SLA: ${sla.target} jam${sla.overdue?' (OVERDUE)':''}</span>
+        </div>
+      `:''}
+      <p>${esc(t.desk)}</p>
+      ${t.file?`<p class="muted">📎 Lampiran: ${esc(t.file)}</p>`:''}
+      <h3 style="font-size:16px;margin:20px 0 10px">💬 Percakapan</h3>
+      <div class="chat">${role=='publik'?'<span class="muted">Percakapan hanya dapat dilihat pelapor dan admin.</span>':t.chat.length?t.chat.map(m=>`<div class="msg ${m.f}"><small>${m.f=='adm'?'Admin':'Pelapor'} · ${m.w}</small>${esc(m.t)}</div>`).join(''):'<span class="muted">Belum ada tanggapan.</span>'}</div>
+      ${(adm||mine)&&t.status!='Ditolak'&&t.status!='Selesai'?`
+        ${adm?`<div style="margin-bottom:10px">
+          <button class="template-btn" onclick="cm.value='Terima kasih laporannya. Kami sedang menindaklanjuti pengaduan Anda.'">📋 Template: Tindak lanjut</button>
+          <button class="template-btn" onclick="cm.value='Pengaduan Anda sudah diteruskan ke unit terkait. Mohon tunggu update selanjutnya.'">📋 Template: Diteruskan</button>
+        </div>`:''}
+        <div class="row">
+          <input id="cm" style="flex:1;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px" placeholder="Tulis pesan..." onkeydown="if(event.key=='Enter')send('${t.id}')">
+          <button class="btn" onclick="send('${t.id}')">Kirim</button>
+        </div>
+      `:''}
+      ${mine&&t.status=='Selesai'&&!t.rating?`
+        <h3 style="font-size:16px;margin:20px 0 4px">⭐ Seberapa puas kamu?</h3>
+        <div class="stars">${[1,2,3,4,5].map(i=>`<button class="${i<=t.rating?'on':''}" aria-label="${i} bintang" onclick="rate('${t.id}',${i})">★</button>`).join('')}</div>
+      `:''}
+      ${t.rating&&!mine?`<p style="margin-top:16px">⭐ Rating pelapor: <b>${t.rating}/5</b></p>`:''} 
+    </div>
+    <div class="card">
+      <h3 style="font-size:16px;margin-bottom:16px">📋 Riwayat Status</h3>
+      <div class="stepper">
+        ${t.log.map((l,i)=>`<div class="stepper-item ${i<t.log.length-1?'completed':t.status!='Menunggu'?'active':''}">
+          <div class="stepper-icon"></div>
+          <b style="font-size:14px">${esc(l[1])}</b>
+          <small class="muted">${l[0]}</small>
+        </div>`).join('')}
+        ${t.status=='Menunggu'||t.status=='Diproses'?`<div class="stepper-item">
+          <div class="stepper-icon"></div>
+          <b style="font-size:14px;color:var(--mute)">Menunggu penyelesaian...</b>
+        </div>`:''}
+      </div>
+      ${adm?actions(t):''}
+    </div>
+  </div>`;
+}
+
+function actions(t){
+  if(t.status=='Menunggu')return `<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+    <div class="field"><label for="un">Teruskan ke unit</label><select id="un">${Object.values(UNIT).map(u=>`<option ${u==UNIT[t.kat]?'selected':''}>${u}</option>`).join('')}</select></div>
+    <div class="row"><button class="btn" onclick="verif('${t.id}')">✓ Verifikasi dan Teruskan</button><button class="btn red" onclick="confirmReject('${t.id}')">✗ Tolak</button></div>`;
+  if(t.status=='Diproses')return `<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+    <button class="btn" style="width:100%" onclick="setSt('${t.id}','Selesai','Selesai ditangani')">✓ Tandai Selesai</button>`;
+  return '';
+}
+
+function confirmReject(id){
+  const html=`<div class="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚠️ Konfirmasi Penolakan</h3>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+      <p>Anda akan menolak pengaduan <b>${id}</b>. Mahasiswa akan menerima notifikasi otomatis.</p>
+      <div class="field">
+        <label for="reject-reason">Alasan penolakan (wajib):</label>
+        <textarea id="reject-reason" rows="3" placeholder="Contoh: Pengaduan tidak lengkap atau tidak sesuai kategori..."></textarea>
+      </div>
+      <div class="row">
+        <button class="btn ghost" onclick="closeModal()">Batal</button>
+        <button class="btn red" onclick="doReject('${id}')">Ya, Tolak Pengaduan</button>
+      </div>
+    </div>
+  </div>`;
+  document.getElementById('modal-root').innerHTML=html;
+}
+
+function doReject(id){
+  const reason=document.getElementById('reject-reason').value.trim();
+  if(!reason){toast('Alasan penolakan wajib diisi.');return}
+  setSt(id,'Ditolak','Ditolak: '+reason);
+  closeModal();
+}
+
+function verif(id){
+  const t=T.find(x=>x.id==id);
+  t.unit=un.value;t.status='Diproses';
+  t.log.push(['23 Okt','Diverifikasi admin']);
+  t.log.push(['23 Okt','Diteruskan ke '+t.unit]);
+  save();notif(t,'status berubah menjadi Diproses');render()
+}
+
+function setSt(id,s,l){
+  const t=T.find(x=>x.id==id);
+  t.status=s;t.log.push(['23 Okt',l]);
+  save();notif(t,'status berubah menjadi '+s);render()
+}
+
+function send(id){
+  const v=cm.value.trim();if(!v)return;
+  const t=T.find(x=>x.id==id);
+  t.chat.push({f:role=='admin'?'adm':'mhs',t:v,w:'23 Okt'});
+  save();
+  if(role=='admin')notif(t,'ada tanggapan baru');
+  render()
+}
+
+function rate(id,n){
+  const t=T.find(x=>x.id==id);
+  t.rating=n;save();
+  toast('Terima kasih atas penilaianmu! ⭐'.repeat(n));
+  render()
+}
+
+function bars(){
+  const m=Math.max(1,...KAT.map(k=>T.filter(t=>t.kat==k).length));
+  return KAT.map(k=>{
+    const n=T.filter(t=>t.kat==k).length;
+    return `<div class="bar"><span>${k}</span><i style="width:${n/m*100}%"></i><b>${n}</b></div>`
+  }).join('')
+}
+
+// NEW: Bulk Actions
+function toggleBulk(id){
+  if(bulkSel.has(id))bulkSel.delete(id);
+  else bulkSel.add(id);
+  render();
+}
+
+function selectAll(){
+  const visible=getFilteredTickets();
+  visible.forEach(t=>bulkSel.add(t.id));
+  render();
+}
+
+function deselectAll(){
+  bulkSel.clear();
+  render();
+}
+
+function bulkVerify(){
+  if(!bulkSel.size){toast('Pilih pengaduan terlebih dahulu.');return}
+  const confirmed=confirm(`Verifikasi ${bulkSel.size} pengaduan sekaligus?`);
+  if(!confirmed)return;
+  
+  bulkSel.forEach(id=>{
+    const t=T.find(x=>x.id==id);
+    if(t.status=='Menunggu'){
+      t.status='Diproses';
+      t.unit=UNIT[t.kat];
+      t.log.push(['23 Okt','Diverifikasi admin (bulk)']);
+      t.log.push(['23 Okt','Diteruskan ke '+t.unit]);
+    }
+  });
+  
+  save();
+  toast(`${bulkSel.size} pengaduan berhasil diverifikasi.`);
+  bulkSel.clear();
+  render();
+}
+
+function bulkExport(){
+  if(!bulkSel.size){toast('Pilih pengaduan terlebih dahulu.');return}
+  const data=T.filter(t=>bulkSel.has(t.id));
+  const csv='ID,Judul,Kategori,Status,Pelapor,Tanggal\n'+data.map(t=>`${t.id},"${t.judul}",${t.kat},${t.status},${t.nama},${t.tgl}`).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=`pengaduan-export-${Date.now()}.csv`;
+  a.click();
+  toast(`${bulkSel.size} pengaduan berhasil di-export.`);
+}
+
+// NEW: Enhanced Filter
+function getFilteredTickets(){
+  let filtered=T.filter(t=>flt=='Semua'||t.status==flt);
+  
+  if(searchQ){
+    const q=searchQ.toLowerCase();
+    filtered=filtered.filter(t=>(t.id+t.judul+t.kat+t.nama+t.nim).toLowerCase().includes(q));
+  }
+  
+  if(filters.urgent)filtered=filtered.filter(t=>t.urgent);
+  if(filters.anon)filtered=filtered.filter(t=>t.anon);
+  if(filters.overdue)filtered=filtered.filter(t=>getSLA(t).overdue);
+  
+  return filtered;
+}
+
+function applyFilters(){
+  searchQ=document.getElementById('search-input').value.trim();
+  filters.urgent=document.getElementById('f-urgent').checked;
+  filters.anon=document.getElementById('f-anon').checked;
+  filters.overdue=document.getElementById('f-overdue').checked;
+  render();
+}
+
+function resetFilters(){
+  searchQ='';
+  filters={urgent:false,anon:false,overdue:false};
+  document.getElementById('search-input').value='';
+  render();
+}
+
+function admin(){
+  const c=counts();
+  const L=['Semua','Menunggu','Diproses','Selesai','Ditolak'];
+  const filtered=getFilteredTickets();
+  const urgent=T.filter(t=>t.urgent&&t.status!='Selesai'&&t.status!='Ditolak').length;
+  const overdue=T.filter(t=>getSLA(t).overdue&&t.status!='Selesai'&&t.status!='Ditolak').length;
+  
+  return `
+  <div class="dashboard-header">
+    <h2>📊 Dashboard Admin</h2>
+    <span style="opacity:.9">${now()}</span>
+    <div class="dashboard-stats">
+      <div class="dashboard-stat"><b class="s-Menunggu">${c.Menunggu||0}</b><span>Menunggu</span></div>
+      <div class="dashboard-stat"><b class="s-Diproses">${c.Diproses||0}</b><span>Diproses</span></div>
+      <div class="dashboard-stat"><b class="s-Selesai">${c.Selesai||0}</b><span>Selesai</span></div>
+      <div class="dashboard-stat"><b>${urgent}</b><span>Mendesak</span></div>
+      <div class="dashboard-stat"><b>${overdue}</b><span>Overdue</span></div>
+    </div>
+  </div>
+  
+  ${notifCenter()}
+  
+  <div class="quick-actions">
+    <button class="btn sm" onclick="flt='Menunggu';filters={urgent:false,anon:false,overdue:false};render()">📋 Lihat Menunggu</button>
+    <button class="btn sm ghost" onclick="filters.overdue=true;render()">⏰ Lihat Overdue</button>
+    <button class="btn sm ghost" onclick="alert('Fitur export akan ditambahkan')">📥 Export Laporan</button>
+  </div>
+  
+  <div class="filter-panel">
+    <div class="filter-row">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input id="search-input" placeholder="Cari NIM, nama, judul, nomor..." value="${esc(searchQ)}">
+      </div>
+      <button class="btn sm" onclick="applyFilters()">Terapkan</button>
+      <button class="btn sm ghost" onclick="resetFilters()">Reset</button>
+    </div>
+    <div class="filter-row">
+      <label class="checkbox-row"><input type="checkbox" id="f-urgent" ${filters.urgent?'checked':''}> <span>⚠️ Mendesak saja</span></label>
+      <label class="checkbox-row"><input type="checkbox" id="f-anon" ${filters.anon?'checked':''}> <span>🔒 Anonim saja</span></label>
+      <label class="checkbox-row"><input type="checkbox" id="f-overdue" ${filters.overdue?'checked':''}> <span>⏰ Overdue saja</span></label>
+    </div>
+  </div>
+  
+  ${bulkSel.size>0?`<div class="bulk-actions">
+    <span style="font-weight:600">${bulkSel.size} dipilih</span>
+    <button class="btn sm" onclick="bulkVerify()">✓ Verifikasi Massal</button>
+    <button class="btn sm ghost" onclick="bulkExport()" style="border-color:#ffffff88;color:#fff">📥 Export Selected</button>
+    <button class="btn sm ghost" onclick="deselectAll()" style="border-color:#ffffff88;color:#fff">✕ Batal</button>
+  </div>`:''}
+  
+  <div class="tabs">
+    ${L.map(s=>`<button class="${s==flt?'on':''}" onclick="flt='${s}';render()">${s} ${s!='Semua'?'('+( c[s]||0)+')':''}</button>`).join('')}
+    <div class="sp"></div>
+    <button class="btn sm ghost" onclick="selectAll()">☑️ Pilih Semua</button>
+  </div>
+  
+  <div class="list">
+    ${filtered.length?filtered.map(t=>tkRow(t,true,true)).join(''):`<p style="padding:20px" class="muted">Tidak ada pengaduan yang cocok dengan filter.</p>`}
+  </div>
+  
+  <div class="card" style="margin-top:20px">
+    <h3 style="font-size:16px;margin-bottom:12px">📊 Pengaduan per Kategori</h3>
+    ${bars()}
+  </div>`;
+}
+
+function pim(){
+  const c=counts();
+  const u=T.filter(t=>t.urgent&&t.status!='Selesai'&&t.status!='Ditolak');
+  const r=T.filter(t=>t.rating);
+  const avgRating=r.length?(r.reduce((a,t)=>a+t.rating,0)/r.length).toFixed(1):'-';
+  const completion=T.length?Math.round((c.Selesai||0)/T.length*100):0;
+  const overdue=T.filter(t=>getSLA(t).overdue&&t.status!='Selesai'&&t.status!='Ditolak');
+  
+  return `
+  <div class="dashboard-header">
+    <h2>📈 Dashboard Pimpinan</h2>
+    <span style="opacity:.9">Laporan Eksekutif - ${now()}</span>
+    <div class="dashboard-stats">
+      <div class="dashboard-stat"><b>${T.length}</b><span>Total Pengaduan</span></div>
+      <div class="dashboard-stat"><b>${completion}%</b><span>Tingkat Penyelesaian</span></div>
+      <div class="dashboard-stat"><b>${avgRating}/5</b><span>Kepuasan Mahasiswa</span></div>
+      <div class="dashboard-stat"><b>${u.length}</b><span>Mendesak Aktif</span></div>
+      <div class="dashboard-stat"><b>${overdue.length}</b><span>Overdue</span></div>
+    </div>
+  </div>
+  
+  ${overdue.length>0?`<div class="notif-center">
+    <div class="notif-item urgent">
+      <div class="notif-icon red">⚠️</div>
+      <div style="flex:1">
+        <b style="font-size:14px">Perhatian: ${overdue.length} Pengaduan Overdue</b>
+        <span class="muted" style="font-size:12px">Melewati target SLA 48 jam</span>
+      </div>
+    </div>
+  </div>`:''}
+  
+  <h3 style="margin:24px 0 10px;font-size:18px">🚨 Pengaduan Mendesak Belum Selesai</h3>
+  <div class="list">
+    ${u.length?u.map(t=>tkRow(t,true)).join(''):'<p style="padding:20px" class="muted">✓ Tidak ada pengaduan mendesak. Semua terkendali.</p>'}
+  </div>
+  
+  <div class="grid g3" style="margin-top:20px">
+    <div class="card">
+      <h3 style="font-size:16px;margin-bottom:12px">📊 Per Kategori</h3>
+      ${bars()}
+    </div>
+    <div class="card">
+      <h3 style="font-size:16px;margin-bottom:12px">📈 Per Status</h3>
+      ${['Menunggu','Diproses','Selesai','Ditolak'].map(s=>`<div class="bar">
+        <span>${s}</span>
+        <i style="width:${T.length?(c[s]||0)/T.length*100:0}%;background:var(--${{Menunggu:'amb',Diproses:'blu',Selesai:'grn',Ditolak:'red'}[s]})"></i>
+        <b>${c[s]||0}</b>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+// Initialize
+(async()=>{
+  if(!USERS.length){
+    USERS=[{nim:'2210511042',nama:'Rayhan Pratama',prodi:'Teknik Informatika',h:await H('2210511042','mahasiswa123')}];
+    saveU();
+  }
+  try{ME=USERS.find(u=>u.nim==localStorage.getItem('cc_me'))||null}catch(e){}
+  
+  // Ensure all tickets have createdAt
+  T.forEach(t=>{if(!t.createdAt)t.createdAt=Date.now()-Math.random()*30*24*60*60*1000});
+  save();
+  
+  render();
+  
+  // Update timer setiap menit
+  setInterval(()=>{if(role=='admin'||sel)render()},60000);
+})();
+</script>
+</body>
+</html>
