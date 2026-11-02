@@ -3,7 +3,9 @@
 // Talks to the Express backend. Vite proxies `/api` -> http://localhost:3000
 // ==========================================================================
 
-const API_BASE = '/api';
+import { API_BASE } from './config.js';
+
+// Production: set VITE_API_URL (lihat js/config.js). Development pakai proxy Vite.
 
 export class ApiError extends Error {
   constructor(message, code, status) {

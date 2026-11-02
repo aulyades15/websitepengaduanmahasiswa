@@ -2,6 +2,7 @@
 // CampusCare — Pengaduan pages: List / New / Detail
 // ==========================================================================
 import api from '../api.js';
+import { SERVER_URL } from '../config.js';
 import { icon } from '../icons.js';
 import {
   $, $$, toast, toastError, toastSuccess, escapeHtml, statusBadge, slaBadge,
@@ -527,7 +528,7 @@ export async function renderPengaduanDetail(root, id) {
           <div class="card__body">
             <div class="flex flex-wrap gap-3">
               ${p.attachments.map((a) => {
-                const url = a.file_url || a.url || `/uploads/${a.filename}`;
+                const url = a.file_url || a.url || `${SERVER_URL}/uploads/${a.filename}`;
                 const name = a.original_filename || a.file_name || a.filename || 'File';
                 const size = a.file_size ? ` · ${formatBytes(a.file_size)}` : '';
                 return `<a class="chip" href="${url}" target="_blank" rel="noopener">${icon('paperclip', { size: 15 })} ${escapeHtml(name)}${size}</a>`;

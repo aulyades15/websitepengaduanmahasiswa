@@ -3,6 +3,7 @@
 // Messages are sent via REST and broadcast over Socket.io to the room.
 // ==========================================================================
 import { io } from 'socket.io-client';
+import { SERVER_URL } from '../config.js';
 import api from '../api.js';
 import { icon } from '../icons.js';
 import { $, $$, escapeHtml, avatar, timeAgo, emptyState, toastError } from '../ui.js';
@@ -16,7 +17,7 @@ let renderedIds = new Set();
 function ensureSocket() {
   if (socket) return socket;
 
-  socket = io('/', {
+  socket = io(SERVER_URL || '/', {
     path: '/socket.io',
     transports: ['websocket'],
     reconnection: true,
